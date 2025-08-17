@@ -80,6 +80,7 @@
                                 </a>
                             </div>
                         </div>
+{{--                        <div>{{var_dump(getFeaturedDealsProductList())}}</div>--}}
                         <div class="owl-carousel owl-theme new-arrivals-product">
                             @foreach(getFeaturedDealsProductList() as $key=>$product)
                                 @include('web-views.partials._product-card-1',['product'=>$product, 'decimal_point_settings'=>$decimalPointSettings])

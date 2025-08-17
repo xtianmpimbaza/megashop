@@ -67,7 +67,7 @@
                                     @include('web-views.customer-views.auth.partials._remember-me', [
                                         'forgotPassword' => true,
                                     ])
-                                    @include('web-views.customer-views.auth.partials._recaptcha')
+{{--                                    @include('web-views.customer-views.auth.partials._recaptcha')--}}
                                     <button class="btn btn--primary btn-block btn-shadow font-semi-bold" type="submit">
                                         {{ translate('sign_in') }}
                                     </button>

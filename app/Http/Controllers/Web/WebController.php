@@ -1186,11 +1186,11 @@ class WebController extends Controller
 
     public function contact_store(Request $request): RedirectResponse
     {
-        $result = RecaptchaService::verificationStatus(request: $request, session: 'default_captcha_value_contact', action: 'contact');
-        if ($result && !$result['status']) {
-            Toastr::error($result['message']);
-            return back();
-        }
+//        $result = RecaptchaService::verificationStatus(request: $request, session: 'default_captcha_value_contact', action: 'contact');
+//        if ($result && !$result['status']) {
+//            Toastr::error($result['message']);
+//            return back();
+//        }
         $request->validate([
             'mobile_number' => 'required|max:20',
             'subject' => 'required',

@@ -60,11 +60,11 @@ class LoginController extends BaseController
     {
         $sessionKey = ($request['role'] == 'admin') ? SessionKey::ADMIN_RECAPTCHA_KEY: SessionKey::EMPLOYEE_RECAPTCHA_KEY;
 
-        $result = RecaptchaService::verificationStatus(request: $request, session: $sessionKey, action: "login");
-        if ($result && !$result['status']) {
-            ToastMagic::error($result['message']);
-            return back();
-        }
+//        $result = RecaptchaService::verificationStatus(request: $request, session: $sessionKey, action: "login");
+//        if ($result && !$result['status']) {
+//            ToastMagic::error($result['message']);
+//            return back();
+//        }
 
         $admin = $this->admin->where('email', $request['email'])->first();
         if (isset($admin) && in_array($request['role'], [UserRole::ADMIN, UserRole::EMPLOYEE]) && $admin->status) {

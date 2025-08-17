@@ -3273,4 +3273,6 @@ return [
 	"profile_Settings" => "Profile Settings",
 	"email_already_taken" => "Email already taken",
 	"customer_message" => "Customer message",
+	"No_such_user_found" => "No such user found",
+	"please_ensure_your_s3_credentials_are_valid." => "Please ensure your s3 credentials are valid.",
 ];

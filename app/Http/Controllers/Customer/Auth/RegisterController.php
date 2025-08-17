@@ -64,17 +64,17 @@ class RegisterController extends Controller
 
     public function submitRegisterData(CustomerRegistrationRequest $request): JsonResponse|RedirectResponse
     {
-        $result = RecaptchaService::verificationStatus(request: $request, session: 'default_recaptcha_id_customer_auth', action: "customer_auth", firebase: true);
-        if ($result && !$result['status']) {
-            if ($request->ajax()) {
-                return response()->json([
-                    'error' => $result['message'],
-                ]);
-            }
-
-            Toastr::error($result['message']);
-            return back();
-        }
+//        $result = RecaptchaService::verificationStatus(request: $request, session: 'default_recaptcha_id_customer_auth', action: "customer_auth", firebase: true);
+//        if ($result && !$result['status']) {
+//            if ($request->ajax()) {
+//                return response()->json([
+//                    'error' => $result['message'],
+//                ]);
+//            }
+//
+//            Toastr::error($result['message']);
+//            return back();
+//        }
 
         $referUser = $request['referral_code'] ? $this->customerRepo->getFirstWhere(params: ['referral_code' => $request['referral_code']]) : null;
         $referralConfig = getWebConfig(name: 'ref_earning_customer');
@@ -209,17 +209,17 @@ class RegisterController extends Controller
             'token' => 'required',
         ]);
 
-        $result = RecaptchaService::verificationStatus(request: $request, session: 'default_recaptcha_id_customer_auth', action: "customer_auth", firebase: true);
-        if ($result && !$result['status']) {
-            if ($request->ajax()) {
-                return response()->json([
-                    'error' => $result['message'],
-                ]);
-            }
-
-            Toastr::error($result['message']);
-            return back();
-        }
+//        $result = RecaptchaService::verificationStatus(request: $request, session: 'default_recaptcha_id_customer_auth', action: "customer_auth", firebase: true);
+//        if ($result && !$result['status']) {
+//            if ($request->ajax()) {
+//                return response()->json([
+//                    'error' => $result['message'],
+//                ]);
+//            }
+//
+//            Toastr::error($result['message']);
+//            return back();
+//        }
 
         $maxOTPHit = getWebConfig(name: 'maximum_otp_hit') ?? 5;
         $maxOTPHitTime = getWebConfig(name: 'otp_resend_time') ?? 60; // seconds
@@ -475,17 +475,17 @@ class RegisterController extends Controller
 
     public function resendOTPToCustomer(Request $request): JsonResponse|RedirectResponse
     {
-        $result = RecaptchaService::verificationStatus(request: $request, session: 'default_recaptcha_id_customer_auth', action: "customer_auth", firebase: true);
-        if ($result && !$result['status']) {
-            if ($request->ajax()) {
-                return response()->json([
-                    'error' => $result['message'],
-                ]);
-            }
-
-            Toastr::error($result['message']);
-            return back();
-        }
+//        $result = RecaptchaService::verificationStatus(request: $request, session: 'default_recaptcha_id_customer_auth', action: "customer_auth", firebase: true);
+//        if ($result && !$result['status']) {
+//            if ($request->ajax()) {
+//                return response()->json([
+//                    'error' => $result['message'],
+//                ]);
+//            }
+//
+//            Toastr::error($result['message']);
+//            return back();
+//        }
 
         $maxOTPHit = getWebConfig(name: 'maximum_otp_hit') ?? 5;
         $maxOTPHitTime = getWebConfig(name: 'otp_resend_time') ?? 60; // seconds

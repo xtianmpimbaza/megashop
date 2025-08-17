@@ -55,16 +55,16 @@ class ForgotPasswordController extends Controller
             'identity' => 'required',
         ]);
 
-        $result = RecaptchaService::verificationStatus(request: $request, session: 'default_recaptcha_id_customer_auth', action: "customer_auth", firebase: true);
-        if ($result && !$result['status']) {
-            if ($request->ajax()) {
-                return response()->json([
-                    'error' => $result['message'],
-                ]);
-            }
-            Toastr::error($result['message']);
-            return back();
-        }
+//        $result = RecaptchaService::verificationStatus(request: $request, session: 'default_recaptcha_id_customer_auth', action: "customer_auth", firebase: true);
+//        if ($result && !$result['status']) {
+//            if ($request->ajax()) {
+//                return response()->json([
+//                    'error' => $result['message'],
+//                ]);
+//            }
+//            Toastr::error($result['message']);
+//            return back();
+//        }
 
         $customer = $this->customerRepo->getByIdentity(filters: ['phone' => $request['identity']]);
         if (!$customer) {
@@ -148,17 +148,17 @@ class ForgotPasswordController extends Controller
 
     public function resendPhoneOTPRequest(Request $request): JsonResponse|RedirectResponse
     {
-        $result = RecaptchaService::verificationStatus(request: $request, session: 'default_recaptcha_id_customer_auth', action: "customer_auth", firebase: true);
-        if ($result && !$result['status']) {
-            if ($request->ajax()) {
-                return response()->json([
-                    'error' => $result['message'],
-                ]);
-            }
-
-            Toastr::error($result['message']);
-            return back();
-        }
+//        $result = RecaptchaService::verificationStatus(request: $request, session: 'default_recaptcha_id_customer_auth', action: "customer_auth", firebase: true);
+//        if ($result && !$result['status']) {
+//            if ($request->ajax()) {
+//                return response()->json([
+//                    'error' => $result['message'],
+//                ]);
+//            }
+//
+//            Toastr::error($result['message']);
+//            return back();
+//        }
 
         $customer = $this->customerRepo->getByIdentity(filters: ['identity' => base64_decode($request['identity'])]);
         if ($customer) {
@@ -337,17 +337,17 @@ class ForgotPasswordController extends Controller
             return redirect()->back();
         }
 
-        $result = RecaptchaService::verificationStatus(request: $request, session: 'default_recaptcha_id_customer_auth', action: "customer_auth", firebase: true);
-        if ($result && !$result['status']) {
-            if ($request->ajax()) {
-                return response()->json([
-                    'error' => $result['message'],
-                ]);
-            }
-
-            Toastr::error($result['message']);
-            return back();
-        }
+//        $result = RecaptchaService::verificationStatus(request: $request, session: 'default_recaptcha_id_customer_auth', action: "customer_auth", firebase: true);
+//        if ($result && !$result['status']) {
+//            if ($request->ajax()) {
+//                return response()->json([
+//                    'error' => $result['message'],
+//                ]);
+//            }
+//
+//            Toastr::error($result['message']);
+//            return back();
+//        }
 
         $firebaseOTPVerification = getWebConfig(name: 'firebase_otp_verification') ?? [];
         $phoneVerification = base64_decode($request['type']) == 'phone_verification';

@@ -321,16 +321,16 @@ class SocialAuthController extends Controller
 
     public function verifyAccount(Request $request): View|RedirectResponse|JsonResponse
     {
-        $result = RecaptchaService::verificationStatus(request: $request, session: 'default_recaptcha_id_customer_auth', action: "customer_auth", firebase: true);
-        if ($result && !$result['status']) {
-            if ($request->ajax()) {
-                return response()->json([
-                    'error' => $result['message'],
-                ]);
-            }
-            Toastr::error($result['message']);
-            return back();
-        }
+//        $result = RecaptchaService::verificationStatus(request: $request, session: 'default_recaptcha_id_customer_auth', action: "customer_auth", firebase: true);
+//        if ($result && !$result['status']) {
+//            if ($request->ajax()) {
+//                return response()->json([
+//                    'error' => $result['message'],
+//                ]);
+//            }
+//            Toastr::error($result['message']);
+//            return back();
+//        }
 
         if (!$request->has('token') || empty($request['token'])) {
             if (request()->ajax()) {

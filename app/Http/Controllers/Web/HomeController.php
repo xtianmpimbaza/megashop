@@ -78,6 +78,7 @@ class HomeController extends Controller
         $featuredProductsList = ProductManager::getPriorityWiseFeaturedProductsQuery(query: $this->product->active()->with(['clearanceSale' => function ($query) {
             return $query->active();
         }]), dataLimit: 12);
+
         $newArrivalProducts = ProductManager::getPriorityWiseNewArrivalProductsQuery(query: $this->product->active()->with(['clearanceSale' => function ($query) {
             return $query->active();
         }]), dataLimit: 8);
