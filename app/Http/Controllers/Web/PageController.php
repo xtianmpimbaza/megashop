@@ -41,6 +41,11 @@ class PageController extends Controller
         return view(VIEW_FILE_NAMES['business_page'], compact('businessPage', 'robotsMetaContentData'));
     }
 
+    public function getAboutView(): View
+    {
+        return view(VIEW_FILE_NAMES['about-us']);
+    }
+
     public function getContactView(): View
     {
         $robotsMetaContentData = $this->robotsMetaContentRepo->getFirstWhere(params: ['page_name' => 'contacts']);

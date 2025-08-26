@@ -4,10 +4,10 @@
             <div class="container">
                 <div class="footer-slider owl-theme owl-carousel"
                      data-item="{{ Route::has('frontend.blog.index') && getWebConfig(name: 'blog_feature_active_status') ? 4 : 3 }}">
-                    @if($web_config['business_pages']?->firstWhere('slug', 'about-us'))
+{{--                    @if($web_config['business_pages']?->firstWhere('slug', 'about-us'))--}}
                         <div class="footer-slide-item">
                             <div>
-                                <a href="{{ route('business-page.view', ['slug' => 'about-us']) }}">
+                                <a href="{{ route('about-us') }}">
                                     <div class="text-center text-primary">
                                         <img class="object-contain svg" width="36" height="36"
                                              src="{{ theme_asset(path: "public/assets/front-end/img/icons/about-us.svg")}}"
@@ -22,7 +22,7 @@
                                 </a>
                             </div>
                         </div>
-                    @endif
+{{--                    @endif--}}
 
                     <div class="footer-slide-item">
                         <div>

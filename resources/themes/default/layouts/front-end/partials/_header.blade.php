@@ -316,6 +316,18 @@
                             <a class="nav-link" href="{{route('home')}}">{{ translate('home')}}</a>
                         </li>
 
+                        <li class="nav-item dropdown d-none d-md-block {{request()->is('/')?'active':''}}">
+                            <a class="nav-link" href="{{route('products')}}">Products</a>
+                        </li>
+
+                        <li class="nav-item dropdown d-none d-md-block {{request()->is('/')?'active':''}}">
+                            <a class="nav-link" href="{{route('about-us')}}">About Us</a>
+                        </li>
+
+                        <li class="nav-item dropdown d-none d-md-block {{request()->is('/')?'active':''}}">
+                            <a class="nav-link" href="{{route('contacts')}}">Contact Us</a>
+                        </li>
+
                         @if(getWebConfig(name: 'product_brand'))
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#"
@@ -533,6 +545,7 @@
                             @endif
                         @endif
                     </ul>
+
                     @if(auth('customer')->check())
                         <div class="logout-btn mt-auto d-md-none">
                             <hr>
