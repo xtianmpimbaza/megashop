@@ -4,25 +4,25 @@
             <div class="container">
                 <div class="footer-slider owl-theme owl-carousel"
                      data-item="{{ Route::has('frontend.blog.index') && getWebConfig(name: 'blog_feature_active_status') ? 4 : 3 }}">
-{{--                    @if($web_config['business_pages']?->firstWhere('slug', 'about-us'))--}}
-                        <div class="footer-slide-item">
-                            <div>
-                                <a href="{{ route('about-us') }}">
-                                    <div class="text-center text-primary">
-                                        <img class="object-contain svg" width="36" height="36"
-                                             src="{{ theme_asset(path: "public/assets/front-end/img/icons/about-us.svg")}}"
-                                             alt="">
-                                    </div>
-                                    <div class="text-center">
-                                        <h2 class="m-0 mt-2 heading">
-                                            {{ translate('about_us') }}
-                                        </h2>
-                                        <p class="d-none d-sm-block des mb-0">{{ translate('Know_about_our_company_more.') }}</p>
-                                    </div>
-                                </a>
-                            </div>
+                    {{--                    @if($web_config['business_pages']?->firstWhere('slug', 'about-us'))--}}
+                    <div class="footer-slide-item">
+                        <div>
+                            <a href="{{ route('about-us') }}">
+                                <div class="text-center text-primary">
+                                    <img class="object-contain svg" width="36" height="36"
+                                         src="{{ theme_asset(path: "public/assets/front-end/img/icons/about-us.svg")}}"
+                                         alt="">
+                                </div>
+                                <div class="text-center">
+                                    <h2 class="m-0 mt-2 heading">
+                                        {{ translate('about_us') }}
+                                    </h2>
+                                    <p class="d-none d-sm-block des mb-0">{{ translate('Know_about_our_company_more.') }}</p>
+                                </div>
+                            </a>
                         </div>
-{{--                    @endif--}}
+                    </div>
+                    {{--                    @endif--}}
 
                     <div class="footer-slide-item">
                         <div>
@@ -195,14 +195,44 @@
                                 </h6>
 
                                 <ul class="widget-list __pb-10px">
-                                    @foreach($web_config['business_pages']->where('default_status', 1) as $businessPage)
-                                            <li class="widget-list-item">
-                                                <a class="widget-list-link"
-                                                   href="{{ route('business-page.view', ['slug' => $businessPage['slug']]) }}">
-                                                    {{ Str::limit($businessPage['title'], 25, '...') }}
-                                                </a>
-                                            </li>
-                                    @endforeach
+{{--                                    @foreach($web_config['business_pages']->where('default_status', 1) as $businessPage)--}}
+{{--                                        <li class="widget-list-item">--}}
+{{--                                            <a class="widget-list-link"--}}
+{{--                                               href="{{ route('business-page.view', ['slug' => $businessPage['slug']]) }}">--}}
+{{--                                                {{ Str::limit($businessPage['title'], 25, '...') }}--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                    @endforeach--}}
+
+                                    <li class="widget-list-item">
+                                        <a class="widget-list-link"
+                                           href="{{ route('home') }}">
+                                            Home
+                                        </a>
+                                    </li>
+
+                                    <li class="widget-list-item">
+                                        <a class="widget-list-link"
+                                           href="{{ route('products') }}">
+                                            Products
+                                        </a>
+                                    </li>
+
+                                    <li class="widget-list-item">
+                                        <a class="widget-list-link"
+                                           href="{{ route('about-us') }}">
+                                            About Us
+                                        </a>
+                                    </li>
+
+                                    <li class="widget-list-item">
+                                        <a class="widget-list-link"
+                                           href="{{ route('contacts') }}">
+                                            Contact Us
+                                        </a>
+                                    </li>
+
+
                                 </ul>
                             </div>
                             <div class="col-sm-5 footer-padding-bottom offset-max-sm--1 pb-3 pb-sm-0">

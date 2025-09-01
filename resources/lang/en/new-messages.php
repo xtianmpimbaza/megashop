@@ -3277,4 +3277,5 @@ return [
 	"please_ensure_your_s3_credentials_are_valid." => "Please ensure your s3 credentials are valid.",
 	"If_you_turn_on_this_option_your_store_will_be_available_from_the_customer_app_and_website" => "If you turn on this option your store will be available from the customer app and website",
 	"Your_Message_Send_Successfully" => "Your Message Send Successfully",
+	"currency_updated_successfully" => "Currency updated successfully",
 ];
