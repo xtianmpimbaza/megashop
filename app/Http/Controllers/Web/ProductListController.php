@@ -57,6 +57,7 @@ class ProductListController extends Controller
             $data['brand_name'] = Category::find((int)$request['category_id'])->name;
         }
         if ($request['data_from'] == 'brand') {
+//            $brand_data = Brand::find((int)$request['brand_id']);
             $brand_data = Brand::active()->find((int)$request['brand_id']);
             if ($brand_data) {
                 $data['brand_name'] = $brand_data->name;
@@ -265,7 +266,7 @@ class ProductListController extends Controller
             $resultArray = Author::where('id', $request['author_id'])->select('id', 'name')->get();
         }
 
-        if ($type == 'brand' && $request['data_from'] == 'brand') {
+        if ($type == 'brand' || $request['data_from'] == 'brand') {
             $resultArray = Brand::where('id', $request['brand_id'])->select('id', 'name')->get();
         }
 

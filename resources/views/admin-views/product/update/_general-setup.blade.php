@@ -59,7 +59,7 @@
                     </select>
                 </div>
             </div>
-            @if($brandSetting)
+{{--            @if($brandSetting)--}}
                 <div class="col-md-6 col-lg-4 col-xl-3 show-for-physical-product">
                     <div class="form-group">
                         <label class="form-label">
@@ -78,7 +78,7 @@
                         </select>
                     </div>
                 </div>
-            @endif
+{{--            @endif--}}
 
             <div class="col-md-6 col-lg-4 col-xl-3">
                 <div class="form-group">

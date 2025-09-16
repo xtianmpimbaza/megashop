@@ -1,5 +1,6 @@
-@if($web_config['brand_setting'])
+{{--@if($web_config['brand_setting'])--}}
     <div class="product-type-physical-section search-product-attribute-container">
+{{--        {{var_dump($productBrands)}}--}}
         <h6 class="font-semibold fs-13 mb-2">{{ translate('brands') }}</h6>
         <div class="pb-2">
             <div class="input-group-overlay input-group-sm">
@@ -16,6 +17,7 @@
         <ul class="__brands-cate-wrap attribute-list" data-simplebar
             data-simplebar-auto-hide="false">
             <div class="no-data-found text-muted" style="display:none;">{{ translate('No_Data_Found') }}</div>
+{{--            @foreach($activeBrands as $brand)--}}
             @foreach($productBrands as $brand)
                 <?php
                     if (isset($dataFrom) && $dataFrom == 'shop-view' && isset($shopSlug)) {
@@ -42,4 +44,4 @@
             @endforeach
         </ul>
     </div>
-@endif
+{{--@endif--}}

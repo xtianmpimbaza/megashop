@@ -151,7 +151,8 @@ class WebController extends Controller
         }
         $brandStatus = getWebConfig(name: 'product_brand');
         session()->put('product_brand', $brandStatus);
-        if ($brandStatus == 1) {
+
+//        if ($brandStatus == 1) {
             $brandList = Brand::active()->with(['brandProducts' => function ($query) {
                 return $query->withCount(['orderDetails']);
             }])
@@ -164,9 +165,9 @@ class WebController extends Controller
                 'brands' => self::getPriorityWiseBrandProductsQuery(request: $request, query: $brandList),
                 'robotsMetaContentData' => $robotsMetaContentData
             ]);
-        } else {
-            return redirect()->route('home');
-        }
+//        } else {
+//            return redirect()->route('home');
+//        }
     }
 
     function getPriorityWiseBrandProductsQuery($request, $query)
